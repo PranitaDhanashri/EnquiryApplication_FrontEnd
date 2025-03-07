@@ -1,0 +1,26 @@
+<h4>Customer List</h4>
+<hr>
+<a [routerLink]="['/admin/addCustomer']" class="btn btn-primary">Create</a>
+<div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+</div>
+<div class="container">
+    <div class="row header">
+        <div class="col">Id</div>
+        <div class="col">Name</div>
+        <div class="col">Contact Number</div>
+        <div class="col">Email ID</div>
+        <div class="col">Actions</div>
+    </div>
+
+    <div *ngFor="let item of customers" class="row">
+        <div class="col">{{ item.CustomerID }}</div>
+        <div class="col">{{ item.Name }}</div>
+        <div class="col">{{ item.ContactNumber }}</div>
+        <div class="col">{{ item.EmailID }}</div>
+        <div class="col actions">
+            <a [routerLink]="['/admin/addCustomer',item.CustomerID]" class="btn btn-success">Edit</a>
+            <a (click)="deleteCustomer(item.CustomerID)" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>

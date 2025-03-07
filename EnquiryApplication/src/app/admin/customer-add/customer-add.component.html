@@ -1,27 +1,61 @@
 <h4>Add Customer</h4>
 <div class="col-sm-10">
+    <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+    </div>
     <form [formGroup]="customerForm" #form="ngForm" (ngSubmit)="saveCustomer()">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">First Name</label>
+            <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="firstName" formControlName="firstName" />
-                <div *ngIf="customerForm.controls['firstName'].errors && (form.submitted || customerForm.controls['firstName'].dirty)"
+                <input type="text" class="form-control" name="name" formControlName="name" />
+                <div *ngIf="customerForm.controls['name'].errors && (form.submitted || customerForm.controls['name'].dirty)"
                     class="text-danger">
-                    <span [hidden]="!customerForm.controls['firstName'].hasError('required')">Please Enter First
-                        Name</span>
+                    <span [hidden]="!customerForm.controls['name'].hasError('required')">Please enter name</span>
                 </div>
             </div>
         </div>
         <div class="form-group row" style="padding-top: 2%;">
-            <label class="col-sm-2 col-form-label">Middle Name</label>
+            <label class="col-sm-2 col-form-label">Contact Person</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="middleName" formControlName="middleName" />
-                <div *ngIf="customerForm.controls['middleName'].errors && (form.submitted || customerForm.controls['middleName'].dirty)"
+                <input type="text" formControlName="contactPerson" class="form-control" name="contactPerson" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contact Number</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="contactNumber" formControlName="contactNumber"
+                    maxlength="10" />
+                <div *ngIf="customerForm.controls['contactNumber'].errors && (form.submitted || customerForm.controls['contactNumber'].dirty)"
                     class="text-danger">
-                    <span [hidden]="!customerForm.controls['middleName'].hasError('required')">Please Enter Middle
-                        Name</span>
+                    <span [hidden]="!customerForm.controls['contactNumber'].hasError('required')">Please enter contact
+                        number</span>
+                    <span [hidden]="!customerForm.controls['contactNumber'].hasError('pattern')">Please enter correct
+                        contact number</span>
                 </div>
-
+            </div>
+        </div>
+        <div class="form-group row" style="padding-top: 2%;">
+            <label class="col-sm-2 col-form-label">Alternative number</label>
+            <div class="col-sm-6">
+                <input type="text" formControlName="alternativeNumber" class=" form-control" name="alternativeNumber" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email Id</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="emailId" formControlName="emailId" />
+                <div *ngIf="customerForm.controls['emailId'].errors && (form.submitted || customerForm.controls['emailId'].dirty)"
+                    class="text-danger">
+                    <span [hidden]="!customerForm.controls['emailId'].hasError('required')">Please enter Email Id</span>
+                    <span [hidden]="!customerForm.controls['emailId'].hasError('email')">Please enter correct
+                        email id</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row" style="padding-top: 2%;">
+            <label class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" formControlName="address" name="address"></textarea>
             </div>
         </div>
         <div class="form-group row" style="padding-top: 2%;">

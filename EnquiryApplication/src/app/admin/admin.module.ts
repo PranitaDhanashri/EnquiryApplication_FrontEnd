@@ -8,6 +8,7 @@ import { AdminLayoutComponent } from './shared/admin-layout/admin-layout.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerAddComponent } from './customer-add/customer-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminLayoutComponent,
     DashboardComponent,
     CustomerAddComponent,
+    CustomerListComponent,
   ],
   imports: [
     CommonModule,
