@@ -1,0 +1,22 @@
+<h4>Enquiry Type List</h4>
+<hr>
+<a [routerLink]="['/admin/addEnquiryType']" class="btn btn-primary">Create</a>
+<div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+</div>
+<div class="container">
+    <div class="row header">
+        <div class="col">Id</div>
+        <div class="col">Segment</div>
+        <div class="col">Actions</div>
+    </div>
+
+    <div *ngFor="let item of enquiryTypes" class="row">
+        <div class="col">{{ item.Id }}</div>
+        <div class="col">{{ item.Type }}</div>
+        <div class="col actions">
+            <a [routerLink]="['/admin/addEnquiryType',item.Id]" class="btn btn-success">Edit</a>
+            <a (click)="deleteEnquiryType(item.Id)" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>

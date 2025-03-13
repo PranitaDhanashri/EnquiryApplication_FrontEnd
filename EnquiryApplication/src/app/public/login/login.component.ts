@@ -36,6 +36,7 @@ export class LoginComponent {
           if (res.body != null) {
             let user: User = res.body;
             console.log(user.Role);
+            this.authService.SetAuthUser(user);
             if (user.Role == "Admin") {
               this.router.navigate(['/admin']);
             }

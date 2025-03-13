@@ -5,11 +5,13 @@ import { PublicRoutingModule } from './public-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UnauthorizeComponent } from './unauthorize/unauthorize.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    UnauthorizeComponent
   ],
   imports: [
     CommonModule,

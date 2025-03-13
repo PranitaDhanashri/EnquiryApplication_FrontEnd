@@ -1,0 +1,50 @@
+<h4>Add Engineer</h4>
+<div class="col-sm-10">
+    <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+    </div>
+    <form [formGroup]="engineerForm" #form="ngForm" (ngSubmit)="saveEngineer()">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="name" formControlName="name" />
+                <div *ngIf="engineerForm.controls['name'].errors && (form.submitted || engineerForm.controls['name'].dirty)"
+                    class="text-danger">
+                    <span [hidden]="!engineerForm.controls['name'].hasError('required')">Please enter name</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contact Number</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="contact" formControlName="contactNumber" />
+                <div *ngIf="engineerForm.controls['contactNumber'].errors && (form.submitted || engineerForm.controls['contactNumber'].dirty)"
+                    class="text-danger">
+                    <span [hidden]="!engineerForm.controls['contactNumber'].hasError('required')">Please enter contact
+                        number</span>
+                    <span [hidden]="!engineerForm.controls['contactNumber'].hasError('pattern')">Please enter correct
+                        contact
+                        number</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="address" formControlName="address" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date Of Birth</label>
+            <div class="col-sm-6">
+                <input type="date" class="form-control" name="dob" formControlName="dob" />
+            </div>
+        </div>
+        <div class="form-group row" style="padding-top: 2%;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

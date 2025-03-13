@@ -14,28 +14,27 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['customer']">Customer</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['businessSegment']">Business Segment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" [routerLink]="['engineer']">Engineer Master</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['enquiryType']">Enquiry Type</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['statusType']">Status Type</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
+        </div>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+            <ul class="navbar-nav" *ngIf="user!=null">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" (click)="logOut()">Logout</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

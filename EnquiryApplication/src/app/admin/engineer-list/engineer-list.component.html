@@ -1,0 +1,26 @@
+<h4>Engineer List</h4>
+<a [routerLink]="['/admin/addEngineer']" class="btn btn-primary">Create</a>
+<hr>
+<div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+</div>
+<div class="container">
+    <div class="row header">
+        <div class="col">Id</div>
+        <div class="col">Name</div>
+        <div class="col">Contact Number</div>
+        <div class="col">Address</div>
+        <div class="col">Actions</div>
+    </div>
+
+    <div *ngFor="let item of engineers" class="row">
+        <div class="col">{{ item.EngID }}</div>
+        <div class="col">{{ item.Name }}</div>
+        <div class="col">{{ item.ContactNumber }}</div>
+        <div class="col">{{ item.Address }}</div>
+        <div class="col actions">
+            <a [routerLink]="['/admin/addEngineer',item.EngID]" class="btn btn-success">Edit</a>
+            <a (click)="deleteEngineer(item.EngID)" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>

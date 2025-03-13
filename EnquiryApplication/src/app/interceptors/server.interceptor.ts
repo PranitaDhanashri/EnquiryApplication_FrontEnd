@@ -2,7 +2,6 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 import { User } from '../models/user';
-import { Login } from '../models/login';
 
 export const serverInterceptor: HttpInterceptorFn = (req, next) => {
   let user: User | undefined;
@@ -15,5 +14,6 @@ export const serverInterceptor: HttpInterceptorFn = (req, next) => {
       }
     })
   }
+  console.log("In interceptor, JWT :", user?.Token);
   return next(req);
 };

@@ -27,7 +27,7 @@ export class CustomerService {
     return this.httpClient.post<HttpResponse<any>>(environment.apiAddress + '/Customer/UpdateCustomer', JSON.stringify(customer), { headers: this.httpHeaders, observe: 'response' })
   }
 
-  DeleteCourse(customerId: number): Observable<HttpResponse<any>> {
+  DeleteBusinessSegment(customerId: number): Observable<HttpResponse<any>> {
     return this.httpClient.delete<HttpResponse<any>>(environment.apiAddress + '/Customer/DeleteCustomer?customerId=' + customerId, { headers: this.httpHeaders, observe: 'response' });
   }
 

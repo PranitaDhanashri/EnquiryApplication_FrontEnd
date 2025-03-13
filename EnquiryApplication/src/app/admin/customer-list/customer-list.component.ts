@@ -34,7 +34,7 @@ export class CustomerListComponent implements OnInit {
   deleteCustomer(id: number) {
     const isConfirmed = window.confirm('Are you sure you want to delete this customer?');
     if (isConfirmed) {
-      this.customerService.DeleteCourse(id).subscribe({
+      this.customerService.DeleteBusinessSegment(id).subscribe({
         next: (res) => {
           if (res.status == 200) {
             console.log(res.status);

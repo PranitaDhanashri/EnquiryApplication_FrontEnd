@@ -1,0 +1,22 @@
+<h4>Business Segment List</h4>
+<hr>
+<a [routerLink]="['/admin/addBusinessSegment']" class="btn btn-primary">Create</a>
+<div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+</div>
+<div class="container">
+    <div class="row header">
+        <div class="col">Id</div>
+        <div class="col">Segment</div>
+        <div class="col">Actions</div>
+    </div>
+
+    <div *ngFor="let item of segments" class="row">
+        <div class="col">{{ item.BusinessID }}</div>
+        <div class="col">{{ item.Segment }}</div>
+        <div class="col actions">
+            <a [routerLink]="['/admin/addBusinessSegment',item.BusinessID]" class="btn btn-success">Edit</a>
+            <a (click)="deleteSegment(item.BusinessID)" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
